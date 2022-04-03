@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:travelapp/model/tourism_place.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key}) : super(key: key);
+  const DetailScreen({Key? key, required this.place}) : super(key: key);
+
+  final TourismPlace place;
 
   @override
   Widget build(BuildContext context) {
@@ -11,13 +14,13 @@ class DetailScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget> [
-              Image.asset('assets/images/monkasel-thumbnail.jpg'),
+              Image.asset(place.imageAsset[0]),
               Container(
-                margin: EdgeInsets.only(top: 16.0, left: 10.0, right: 10.0),
+                margin: const EdgeInsets.only(top: 16.0, left: 10.0, right: 10.0),
                 child: Text(
-                    "Surabaya Submarine Monument",
+                    place.name,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 30.0,
                       // fontWeight: FontWeight.bold,
                       fontFamily: 'LobsterTwo'
@@ -30,21 +33,21 @@ class DetailScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget> [
                       Column(
-                        children: const <Widget> [
-                          Icon(Icons.calendar_today),
-                          Text('Open Everyday'),
+                        children: <Widget> [
+                          const Icon(Icons.calendar_today),
+                          Text(place.day),
                         ],
                       ),
                       Column(
-                        children: const <Widget> [
-                          Icon(Icons.schedule),
-                          Text('08:00 - 16:00'),
+                        children: <Widget> [
+                          const Icon(Icons.schedule),
+                          Text(place.hour),
                         ],
                       ),
                       Column(
-                        children: const <Widget> [
-                          Icon(Icons.attach_money),
-                          Text('Rp 10.000,-'),
+                        children: <Widget> [
+                          const Icon(Icons.attach_money),
+                          Text(place.price),
                         ],
                       ),
                     ],
@@ -52,10 +55,10 @@ class DetailScreen extends StatelessWidget {
               ), // icon
               Container(
                 padding: const EdgeInsets.all(16.0),
-                child: const Text(
-                  'Museum inside a decommissioned Russian war submarine with tours & an adjacent park with cafes. Clean and well maintained. Car park cost 10k, entrance fee 15k/person. You can see KRI Pasopati there, it is a Russian whiskey class. You can also watch the video about the Indonesian Navy at the building beside the submarine',
+                child: Text(
+                  place.desc,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 16.0,
                       fontFamily: 'Oxygen'
                   ),
@@ -68,33 +71,23 @@ class DetailScreen extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(4.0),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Image.network('https://media-cdn.tripadvisor.com/media/photo-m/1280/16/a9/33/43/liburan-di-farmhouse.jpg'),
-                        ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(
-                          'assets/images/monkasel-1.jpg'),
+                        child: Image.asset(place.imageAsset[1]),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(
-                          'assets/images/monkasel-2.jpg'),
+                        child: Image.asset(place.imageAsset[2]),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(
-                          'assets/images/monkasel-3.jpg'),
+                        child: Image.asset(place.imageAsset[3]),
                       ),
                     ),
                   ],
