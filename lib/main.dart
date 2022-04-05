@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'detail_screen.dart';
 import 'main_screen.dart';
 
 void main() {
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Traveloke',
       theme: ThemeData(),
-      home: const MainScreen(),
+      home: MainScreen(),
     );
   }
 }
