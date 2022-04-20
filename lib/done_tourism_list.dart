@@ -25,7 +25,7 @@ class DoneTourismList extends StatelessWidget {
               children: <Widget> [
                 Expanded(
                   flex: 1,
-                  child: Image.asset(place.imageAsset[0]),
+                  child: Image.network(place.img),
                 ),
                 Expanded(
                   flex: 2,
@@ -36,7 +36,7 @@ class DoneTourismList extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget> [
                         Text(
-                          place.name,
+                          place.title,
                           style: const TextStyle(fontSize: 16.0),
                         ),
                         const SizedBox(

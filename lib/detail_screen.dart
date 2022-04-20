@@ -2,23 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:travelapp/model/tourism_place.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key, required this.place}) : super(key: key);
-
   final TourismPlace place;
+  const DetailScreen({required this.place});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(place.title),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget> [
-              Image.asset(place.imageAsset[0]),
+              Image.network(place.img),
               Container(
                 margin: const EdgeInsets.only(top: 16.0, left: 10.0, right: 10.0),
                 child: Text(
-                    place.name,
+                    place.title,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 30.0,
@@ -35,13 +37,13 @@ class DetailScreen extends StatelessWidget {
                       Column(
                         children: <Widget> [
                           const Icon(Icons.calendar_today),
-                          Text(place.day),
+                          Text(place.openDay),
                         ],
                       ),
                       Column(
                         children: <Widget> [
                           const Icon(Icons.schedule),
-                          Text(place.hour),
+                          Text(place.openTime),
                         ],
                       ),
                       Column(
@@ -56,7 +58,7 @@ class DetailScreen extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
-                  place.desc,
+                  place.description,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                       fontSize: 16.0,
@@ -73,21 +75,21 @@ class DetailScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(4.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(place.imageAsset[1]),
+                        child: Image.network(place.img1),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(place.imageAsset[2]),
+                        child: Image.network(place.img2),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(place.imageAsset[3]),
+                        child: Image.network(place.img3),
                       ),
                     ),
                   ],
